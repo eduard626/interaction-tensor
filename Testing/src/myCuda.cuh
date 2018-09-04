@@ -1,0 +1,1 @@
+void bayesian_scores(float *nn,float *kp, float *pv, float *tp, float *C, int start, int end, int comp, float *weights, float *mags, float a_th, int *ppCentroid, int* startppCentroid, float *ppCentroidData);

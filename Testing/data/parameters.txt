@@ -1,0 +1,9 @@
+Weighting 1
+Method 2
+Orientations 8
+Sample 1
+Debug 1
+Descriptor 13
+VectorDiff 40
+LocalResponse 0
+PredictionT 50

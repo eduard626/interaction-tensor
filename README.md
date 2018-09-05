@@ -1,4 +1,4 @@
-# Geometric Affordances from a Single Example via the Interaction Tensor 
+# Where Can I Do This? Geometric Affordances from a Single Example with the Interaction Tensor
 
 ### Introduction
 
@@ -12,7 +12,7 @@ This work is based on our ICRA'18 paper. You can find arXiv version of the paper
 If you find our work useful in your research, please consider citing:
 
     @INPROCEEDINGS{ruiz2018,
-    title={Geometric Affordances from a Single Example via the Interaction Tensor},
+    title={Where Can I Do This? Geometric Affordances from a Single Example with the Interaction Tensor},
     author={Ruiz Eduardo and Mayol-Cuevas Walterio},
     booktitle={Robotics and Automation (ICRA), 2018 IEEE International Conference on},
     year={2018},

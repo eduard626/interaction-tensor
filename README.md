@@ -1,12 +1,14 @@
-# Geometric Affordances from a Single Example via the Interaction Tensor
+# Geometric Affordances from a Single Example via the Interaction Tensor 
 
 ### Introduction
 
 ![](Training/figures/web.png)
 
-The interaction tensor is a tensor field representation to express the *geometric* affordance of one object relative to another, a key competence for Cognitive and Autonomous robots. We expand the bisector surface representation to one that is weight-driven and that retains the provenance of surface points with directional vectors. We also incorporate the notion of *affordance keypoints* which allow for faster decisions at a point of query and with a compact and straightforward descriptor. Using a single interaction example, we are able to generalize to previously-unseen scenarios; both synthetic and also real scenes captured with RGB-D sensors. Evaluations also include crowd-sourcing comparisons that confirm the validity of our affordance proposals, which agree on average 84% of the time with human judgments, which is 20-40% better than the baseline methods. 
+The interaction tensor is a tensor field representation to express the *geometric* affordance of one object relative to another, a key competence for Cognitive and Autonomous robots. We expand the bisector surface representation to one that is weight-driven and that retains the provenance of surface points with directional vectors. We also incorporate the notion of *affordance keypoints* which allow for faster decisions at a point of query and with a compact and straightforward descriptor. Using a single interaction example, we are able to generalize to previously-unseen scenarios; both synthetic and also real scenes captured with RGB-D sensors. Evaluations also include crowd-sourcing comparisons that confirm the validity of our affordance proposals, which agree on average 84% of the time with human judgments, which is 20-40% better than the baseline methods.
 
-#### Citation
+This work is based on our ICRA'18 paper. You can find arXiv version of the paper [here](https://arxiv.org/abs/1703.10584).
+
+#### Citation 
 If you find our work useful in your research, please consider citing:
 
     @INPROCEEDINGS{ruiz2018,

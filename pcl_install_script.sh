@@ -9,14 +9,15 @@ sudo apt-get update
 sudo apt-get install git 
 
 mkdir ./tensorLibs
-cd aPCL
+cd tensorLibs
 git clone https://github.com/PointCloudLibrary/pcl.git pcl-trunk
 
 #	Get all libraries/dependecies 
 
 sudo apt-get install -y g++ cmake cmake-gui doxygen mpi-default-dev openmpi-bin openmpi-common libflann1.8 libflann-dev
 sudo apt-get install -y libeigen3-dev libboost-all-dev libusb-dev libgtest-dev git-core freeglut3-dev pkg-config
-sudo apt-get install -y build-essential libxmu-dev libxi-dev libusb-1-0-dev graphviz
+#	in some more recent ubuntu installations might need to install libusb-1.0-0-dev
+sudo apt-get install -y build-essential libxmu-dev libxi-dev libusb-1-0-dev graphviz libudev-dev
 sudo apt-get install -y phonon-backend-gstreamer phonon-backend-vlc 
 
 #	QT, not completly sure about this but it worked.
@@ -25,7 +26,8 @@ sudo apt-get install -y qtdeclarative5-dev qt5-default qttools5-dev
 
 
 #	VTK from source. Tested with v 7.0.0
-
+#	while building, check MD5 downloads succeed otherwise will not build and
+#	cause issues later on
 git clone https://gitlab.kitware.com/vtk/vtk.git
 cd vtk && git checkout v7.0.0
 mkdir build && cd build
@@ -33,10 +35,13 @@ cmake -DVTK_QT_VERSION:STRING=5 -DQT_QMAKE_EXECUTABLE:PATH=/usr/lib/x86_64-linux
 make -j4 && sudo make install
 
 #	This is optional in my case, but worth installing
-cd ../../	# go back to aPCL
+cd ../../	# go back to tensorLibs dir
 git clone https://github.com/occipital/OpenNI2.git
 cd OpenNI2 && make
 cd Packaging
+#	Following line might cause issues in some OpenNI branches
+#	solution here: https://github.com/occipital/OpenNI2/issues/86
+#	basically need to edit some python files that create documentation
 python ReleaseVersion.py x64	#For 64 bits OS
 echo "export OPENNI2_INCLUDE=$PWD/Packaging/OpenNI-Linux-x64-2.2/Include" >> ~/.bashrc
 echo "export OPENNI2_REDIST=$PWD/Packaging/OpenNI-Linux-x64-2.2/Redist" >> ~/.bashrc

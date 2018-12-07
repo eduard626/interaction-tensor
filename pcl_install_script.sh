@@ -6,7 +6,8 @@
 
 
 sudo apt-get update  
-sudo apt-get install git 
+sudo apt-get install -y git 
+sudo apt-get install openjdk-8-jdk
 
 mkdir ./tensorLibs
 cd tensorLibs
@@ -17,7 +18,7 @@ git clone https://github.com/PointCloudLibrary/pcl.git pcl-trunk
 sudo apt-get install -y g++ cmake cmake-gui doxygen mpi-default-dev openmpi-bin openmpi-common libflann1.8 libflann-dev
 sudo apt-get install -y libeigen3-dev libboost-all-dev libusb-dev libgtest-dev git-core freeglut3-dev pkg-config
 #	in some more recent ubuntu installations might need to install libusb-1.0-0-dev
-sudo apt-get install -y build-essential libxmu-dev libxi-dev libusb-1-0-dev graphviz libudev-dev
+sudo apt-get install -y build-essential libxmu-dev libxi-dev libusb-1.0-0-dev graphviz libudev-dev
 sudo apt-get install -y phonon-backend-gstreamer phonon-backend-vlc 
 
 #	QT, not completly sure about this but it worked.
@@ -43,14 +44,15 @@ cd Packaging
 #	solution here: https://github.com/occipital/OpenNI2/issues/86
 #	basically need to edit some python files that create documentation
 python ReleaseVersion.py x64	#For 64 bits OS
+cd ..
 echo "export OPENNI2_INCLUDE=$PWD/Packaging/OpenNI-Linux-x64-2.2/Include" >> ~/.bashrc
 echo "export OPENNI2_REDIST=$PWD/Packaging/OpenNI-Linux-x64-2.2/Redist" >> ~/.bashrc
 echo "export OPENNI2_LIB=$PWD/Bin/x64-Release" >> ~/.bashrc
 echo "export OPENNI2_INC=$PWD/Include" >> ~/.bashrc
-echo "export PATH=$PATH:$PWD/Bin/x64-Release" >> ~/.bashrc
-echo "export PATH=$PATH:$PWD/bin/x64-Release/OpenNI2" >> ~/.bashrc
+echo "export PATH=\$PATH:$PWD/Bin/x64-Release" >> ~/.bashrc
+echo "export PATH=\$PATH:$PWD/Bin/x64-Release/OpenNI2" >> ~/.bashrc
 
-cd ../../
+cd ..
 
 #	Get qhull
 git clone https://github.com/qhull/qhull.git
@@ -59,7 +61,7 @@ cmake ..
 make && sudo make install
 cd ../
 make && sudo make install
-echo "export LD_LIBRARY_PATH=$PWD/lib:$LD_LIBRARY_PATH" >> ~/.bashrc
+echo "export LD_LIBRARY_PATH=$PWD/lib:\$LD_LIBRARY_PATH" >> ~/.bashrc
 
 ## If error during qhull libraries install
 # Need to fix manually the -lm flags in Makefile

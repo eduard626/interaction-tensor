@@ -18,9 +18,9 @@ That will create 3 main files files and the shared libraries. The main files you
 2. meshSampling
 3. convert_pcd_ascii_binary
 
-The one named *tensorTest* is the one you need to make affordace location prediction. The remaining one contains some auxiliary code which is explained further below
+The one named *tensorTest* is the one you need to make affordance location prediction. The remaining one contains some auxiliary code which is explained further below
 
-Essentially,  you need a query-object and affordance that have been *trained* as well as an input scene where to look for affordance canidadate locations. This scene can be a pointcloud from a synthetic model or
+Essentially,  you need a query-object and affordance that have been *trained* as well as an input scene where to look for affordance candidate locations. This scene can be a pointcloud from a synthetic model or
 a pointcloud obtained with a depth sensor (PCD file).
 
 For example, in order to make affordance predictions for *Placing* a *bowl* in a synthetic kitchen scene (file called kitchen5.ply) you need to call the code as follows:
@@ -67,7 +67,7 @@ The code will produce a few files with the data from the predictions and sampled
 ```
 [affordance]_[query-object]_[scene]_3D_[orientations]_[predictionThreshold]_13_[timeStamp].pcd
 ```
-So, in the case of the previous example it would be somthing like: Place_bowl_kitchen5_3D_8_50_13_[timeStamp].pcd
+So, in the case of the previous example it would be something like: Place_bowl_kitchen5_3D_8_50_13_[timeStamp].pcd
 
 The data files are:
 * timeStamp_samplePoints.pcd: 3D coordinates of test-points sampled from the scene.
@@ -91,7 +91,7 @@ In newer releases (coming soon) we added some extra functionalities which are co
 
 #### meshSampling
 
-Our approach needs needs dense pointclouds, if you have CAD model of a scene that want to test (PLY/OBJ file) you can use *meshSampling* to sample points uniformly over the faces (triagulation)
+Our approach needs needs dense pointclouds, if you have CAD model of a scene that want to test (PLY/OBJ file) you can use *meshSampling* to sample points uniformly over the faces (triangulation)
 of the CAD model. This is essentially the code you can find in the PCL examples with the voxelization disabled so you can set the number of points you want in your final pointlcloud. 
 
 Syntax is:
@@ -104,7 +104,7 @@ where options are:
 #### convert_pcd_ascii_binary
 
 As mentioned earlier PCL GPU functions need binary compressed pointclouds. If you have a pointcloud (created with meshSampling or your own) you can use *convert_pcd_ascii_binary* to solve this issue.
-Similarly to *meshSampling* this code is available in the PCL examples but we provide it for your convinience The syntax is as follows:
+Similarly to *meshSampling* this code is available in the PCL examples but we provide it for your convenience The syntax is as follows:
 ```
 ./convert_pcd_ascii_binary <file_in.pcd> <file_out.pcd> 0/1/2 (ascii/binary/binary_compressed) [precision (ASCII)
 ```

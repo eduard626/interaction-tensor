@@ -85,4 +85,5 @@ This process will create a binary file called newGUI, you can edit this target n
 Instruction for computing interaction tensors given two pointclouds or CAD models can be found [HERE](Training/README.md)
 ## Code Author
 
+If you find bugs or need help create an issue or email me.
 * **Eduardo Ruiz** - [contact](mailto:er13827@my.bristol.ac.uk)
